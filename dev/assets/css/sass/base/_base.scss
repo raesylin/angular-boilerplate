@@ -73,4 +73,14 @@
 	  display: none;
 	}
 	
+	/* setting REM to 10px  */
+	html {
+		font-size: 62.5%;
+	}
+	body {
+		font-size: 16px;
+		font-size: 1.6rem;
+		line-height: 1.5;
+	}
+
 /* End of my own css normalization */
