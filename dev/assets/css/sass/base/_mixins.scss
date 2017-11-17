@@ -16,50 +16,49 @@
   box-sizing: $boxsize;
 }
 
-@mixin bp-320 {
-  @media only screen and (max-width: 320px) {
-    @content;
+/*===================================
+=            BREAKPOINTS            =
+===================================*/
+
+@mixin breakpoint($point) {
+  @if $point == ultralarge {
+    @media (min-width: 1700px) { @content; }
+  }
+
+  @else if $point == large {
+    @media (max-width: 1699px) { @content; }
+  }
+  
+  @else if $point == bpmedium {
+    @media (max-width: 1299px) { @content; }
+  }
+
+  @else if $point == bpsmall {
+    @media (max-width: 1068px) { @content; }
+  }
+
+  @else if $point == ultrasmall {
+    @media (max-width: 899px) { @content; }
+  }
+
+  @else if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  }
+
+  @else if $point == phablet {
+    @media (max-width: 500px) { @content; }
+  }
+
+  @else if $point == mobileonly {
+    @media (max-width: 375px) { @content; }
+  }
+
+  @else if $point == mobilelandscape {
+    @media only screen and (min-width: 568px) and (max-width: 768px) and (orientation: landscape) {
+      @content;    
+    }
   }
 }
 
-@mixin bp-400 {
-  @media only screen and (max-width: 400px) {
-    @content;
-  }
-}
+/*=====  End of BREAKPOINTS  ======*/
 
-@mixin bp-500 {
-  @media only screen and (max-width: 500px) {
-    @content;
-  }
-}
-
-@mixin bp-ultrasmall {
-  @media only screen and (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin bp-small {
-  @media only screen and (max-width: 899px) {
-    @content;
-  }
-}
-
-@mixin bp-medium {
-  @media only screen and (max-width: 1299px) {
-    @content;
-  }
-}
-
-@mixin bp-large {
-  @media only screen and (max-width: 1699px) {
-    @content;
-  }
-}
-
-@mixin bp-ultralarge {
-  @media only screen and (min-width: 1700px) {
-    @content;
-  }
-}
