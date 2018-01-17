@@ -1,0 +1,72 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-sizing($boxsize) {
+  /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
+  -webkit-box-sizing: $boxsize; 
+
+  /* Firefox (desktop or Android) 28- */
+  -moz-box-sizing: $boxsize;
+
+  /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
+  box-sizing: $boxsize;
+}
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*===================================
+=            BREAKPOINTS            =
+===================================*/
+
+/*
+0 - 375px: mobile
+376px - 500px: phablet
+501px - 768px: tablet
+769px - 1200px: tablet-land
+1201px - 1800px: normal style
+1801px + : large
+*/
+
+
+@mixin breakpoint($point) {
+  @if $point == large {         // 1801px+
+    @media (min-width: 112.5em) { @content; }
+  }
+
+  @else if $point == tablet-land {  // 1200px
+    @media (max-width: 75em) { @content; }
+  }
+
+  @else if $point == tablet {   // 768px
+    @media (max-width: 48em) { @content; }
+  }
+
+  @else if $point == phablet {  // 500px
+    @media (max-width: 31.25em) { @content; }
+  }
+
+  @else if $point == mobile {   // 375px
+    @media (max-width: 23.4em) { @content; }
+  }
+  
+}
+
+/*=====  End of BREAKPOINTS  ======*/
+

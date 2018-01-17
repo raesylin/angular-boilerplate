@@ -1,21 +1,25 @@
 'use strict';
 
 var angular = require('angular');
-require('angular-route');
-var app = angular.module('app', ['ngRoute']);
+window.$ = window.jQuery = require('jquery');
+// window._ = require('lodash');  // npm install and uncomment
 
+require('@uirouter/angularjs');
+require('angular-aria');
+require('angular-animate');
+require('angular-messages');
+require('angular-sanitize');
+
+/* INSTANTIATE APP */
+var app = angular.module('app', [
+		'ui.router',
+		'ngAnimate',
+		'ngMessages',
+		'ngSanitize'
+	]);
+
+/* IMPORT DIRECTIVES, COMPONENTS AND SERVICES */
 require('./common');
 require('./components');
 
 app.config(require('./routeConfig'));
-
-// app.config(function($routeProvider) {
-// 	$routeProvider.when('/', {
-// 		templateUrl: 'app/components/main/main.view.html',
-// 		controller: 'mainCtrl',
-// 		controllerAs: 'main'
-// 	})
-// 	.otherwise({
-// 		redirectTo: '/'
-// 	});
-// });
